@@ -1,0 +1,2027 @@
+   <!DOCTYPE html>
+<html lang="en">
+  <head>
+   <title>mindtree</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <link rel="stylesheet" href="zwayam_custom.css">	
+   <!--  <link rel="stylesheet" href="css/login_style.css"> -->
+   <script src="zwayam.tp.main.js"></script>
+      <script src="app1.js"></script>
+    <style>
+      	input[type="text"] {
+		  margin-bottom: -1px;
+		  border-bottom-left-radius: 0;
+		  border-bottom-right-radius: 0;
+		}
+      
+    </style>
+  </head>
+
+  <body ng-app="myApp">
+<div id="wholePage" style=""
+	class="container-fluid" style="padding: 0">
+<form name="userForm" ng-submit="">
+ <div ng-controller="studentController"> 
+
+
+<div id="left_cont" style="background: #7fbbd5; padding-bottom: 4%;"
+			class="col-md-3 left-column">
+			</div>
+<div id="right_cont" style="background: white;"
+			class="clearfix right-column">
+			<div id="insideRight" style="padding: 3%; padding-top: 0px;"
+				class="col-md-8">
+				<div style="border-bottom: 0px;" class="col-md-12">
+					<div class="row">
+						<div style="margin-bottom: 0%; margin-top: 3%; padding-left: 0px;"
+							class="col-xs-10">
+							<div class="tp_mrgn_top_btm tp_font_h3" align="center">Mindtree Limited</div>
+						</div>
+						<div style="text-align: right; margin-top: 3%;" class="col-xs-2"></div>
+					</div>
+				</div>
+
+				
+				<div style="padding-left: 0px; padding-right: 0px;"
+					class="col-md-12">
+					<div class="row">
+					
+						<div class="col-md-12">
+							<div
+								style="margin-bottom: 0%; margin-top: 3%; padding-left: 0px;"
+								class="col-xs-8">
+								<div class="tp_mrgn_top_btm tp_font_h3" >Personal Information </div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 zwayamPadremovedTmp ">
+							<ul style="list-style-type: disc;">
+								<li ng-repeat="pi in profile.personalInfo" class="col-md-12  text-muted pencilOnHover divPencilHover ">
+									<span data-toggle="modal" data-target="#edu_q_modal"
+									ng-click="updatePersonalInfo($index,'personalInformation')"
+									style="position: absolute; right: 0px; top: 0px; padding: 1%; z-index: 555;"
+									class="glyphicon glyphicon-pencil"></span> 
+									
+									<table>
+									<tr>
+    								<td>&nbsp;{{ pi.firstname }}</td>
+    								<td>&nbsp;{{ pi.middlename }}</td>
+    								<td>&nbsp;{{ pi.lastname }}</td>
+    								<td>&nbsp;{{ pi.maidenName }}</td>
+    								<td>&nbsp;{{ pi.fathersname }}</td>
+    								<td>&nbsp;{{ pi.gender }}</td>
+    								<td>&nbsp;{{ pi.DoB }}</td>
+    								<td>&nbsp;{{ pi.emailAddress }}</td>
+    								</tr>
+									</table> 
+								</li>
+							</ul>
+						</div>
+					
+				</div>
+
+				<div style="background: white;" class="row">
+					<div style="padding-right: 0px; padding-left: 0px;"
+						class="col-md-12">
+						<div id="edu_q_modal" role="dialog" class="modal fade"
+							tabindex="-1">
+							<div class="modal-dialog">
+								Modal content
+								<div class="modal-content">
+									<div style="background-color: #eee;" class="modal-header">
+										<button type="button" data-dismiss="modal" class="close">×</button>
+										<h4 class="modal-title font_muted"
+											style="letter-spacing: -0.5px;">Fill in your
+											Personal Information details.</h4>
+									</div>
+
+									<div
+										style="background-color: #eee;"
+										class="modal-body clearfix">
+
+										<div class="col-md-12">
+
+											<div class="form-group">
+												<div class="tp_font_h3" align="center">
+													Personal Information Form
+												</div>								
+											</div>
+
+												<div class="form-group">
+												<div class="tp_font_h3" align="center">
+													Personal Details
+												</div>							
+											</div>
+				
+
+										</div>
+
+									<div class="panel form-group tp_font_h3 row col-sm-12">
+  										<div>
+  											<label for="usr">First Name:</label></div>
+        								<div>
+        									<input id="firstname" class="form-control" type="text"
+													 name="firstname" placeholder="First name" 
+													 ng-model="profile.personalInfoBeingEdited.firstname">
+										</div>
+ 										 <div>
+ 										 	<label for="usr">Middle Name:</label>
+ 										 </div>
+        								 <div>
+        								 	<input id="middlename" class="form-control" type="text"
+													 name="middlename" placeholder="Middle name" 
+													 ng-model="profile.personalInfoBeingEdited.middlename">
+										</div>
+  										 <div>
+  										 	<label for="usr">Last Name:</label>
+  										 	</div>
+        								<div>
+        									<input id="lastname" class="form-control" type="text"
+												 name="lastname" placeholder="Last name" ng-model="profile.personalInfoBeingEdited.lastname">
+										</div>
+
+										<div>Former/Maiden Name (if applicable)
+										</div>
+										<div >
+											<input type="text"
+													autocomplete="on" placeholder="Maiden Name"
+													ng-model="profile.personalInfoBeingEdited.maidenName"
+													style="margin: 0px 0px 0px 0;"
+													class="form-control  textarea_style" />
+										</div>
+
+										<div>Fathers Name</div>
+										<div>
+													<input type="text" ng-model="profile.personalInfoBeingEdited.fathersname"
+													autocomplete="on" placeholder="Fathers name"
+													style="margin: 0px 0px 0px 0;"
+													class="form-control  textarea_style" />
+										</div>
+										<div>Gender</div>
+										<div>
+														 <label class="radio-inline"><input type="radio" ng-model="profile.personalInfoBeingEdited.gender" name="rdoResult" value="male">Male</label>
+
+            											<label class="radio-inline"><input type="radio" ng-model="profile.personalInfoBeingEdited.gender" name="rdoResult" value="female">Female</label>
+
+            											<label class="radio-inline"><input type="radio" ng-model="profile.personalInfoBeingEdited.gender" name="rdoResult" value="other">other</label>
+										</div>
+										<div>Date Of Birth</div>
+										<div>
+											<input type="date" id="dob" class="form-control" ng-model="profile.personalInfoBeingEdited.DoB" />
+										</div>
+										<div>Email Address</div>
+										<div>
+												<input type="email"
+													ng-model="profile.personalInfoBeingEdited.emailAddress"
+													autocomplete="on" placeholder="email"
+													style="margin: 0px 0px 0px 0;"
+													class="form-control  textarea_style" />
+										</div>
+									</div>
+								
+
+
+									<div class="row">
+										<div class="col-md-12">
+											<div style="text-align: center;" class="modal-footer">
+												<span ng-if="profile.personalInfoBeingEdited.emailAddress ==''">
+													<button type="button" class="btn btn-info" disabled>Save
+													</button>
+												</span> <span ng-if="profile.personalInfoBeingEdited.emailAddress !=''">
+													<button type="button" data-dismiss="modal"
+														class="btn btn-info" ng-click="savePersonalInfo('personalInformation')">Save
+													</button>
+												</span>
+
+												<button type="button" data-dismiss="modal"
+													class="btn btn-info"
+													ng-show="profile.personalInfoBeingEdited.index != undefined"
+													ng-click="removePersonalInfo(profile.personalInfoBeingEdited)">
+													Remove</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+  
+							</div>
+						</div>
+						</div>
+					</div>
+					</div>
+				</div>
+
+			
+				<!-- personal detail end -->
+<!--personal address section start -->
+
+				<div style="padding-left: 0px; padding-right: 0px;"
+					class="col-md-12">
+					<div class="row">
+					
+						<div class="col-md-12">
+							<div
+								style="margin-bottom: 0%; margin-top: 3%; padding-left: 0px;"
+								class="col-xs-8">
+								<div class="tp_mrgn_top_btm tp_font_h3" >Personal Address Information </div>
+							</div>
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 zwayamPadremovedTmp ">
+							<ul style="list-style-type: disc;"
+								ng-repeat="addInfo in profile.addressInfo">
+								<li class="col-md-12 text-muted pencilOnHover divPencilHover">
+									<span data-toggle="modal" data-target="#address_q_modal"
+									ng-click="updatePersonalInfo($index,'addressInformation')"
+									style="position: absolute; right: 0px; top: 0px; padding: 1%; z-index: 555;"
+									class="glyphicon glyphicon-pencil"></span>
+									 <table>
+									<tr>
+    								<td>&nbsp;{{ addInfo.currentAddress }}</td>
+    								<td>&nbsp;{{ addInfo.currentLandmark }}</td>
+    								<td>&nbsp;{{ addInfo.currStartDate }}</td>
+    								<td>&nbsp;{{ addInfo.currLastDate }}</td><br>
+    								<td>&nbsp;{{ addInfo.PermanentAddress }}</td>
+    								<td>&nbsp;{{ addInfo.permanentLandmark }}</td>
+    								<td>&nbsp;{{ addInfo.permanentStartDate }}</td>
+    								<td>&nbsp;{{ addInfo.permanentLastDate }}</td>
+    								<td>&nbsp;{{ addInfo.mobileNum }}</td>
+    								<td>&nbsp;{{ addInfo.landlineNum }}</td>
+    								</tr>
+									</table> 
+								</li>
+							</ul>
+						</div>
+					
+				</div>
+
+
+				<div style="background: white;" class="row">
+					<div style="padding-right: 0px; padding-left: 0px;"
+						class="col-md-12">
+						<div id="address_q_modal" role="dialog" class="modal fade"
+							tabindex="-1">
+							<div class="modal-dialog">
+								Modal content
+								<div class="modal-content">
+									<div style="background-color: #eee;" class="modal-header">
+										<button type="button" data-dismiss="modal" class="close">×</button>
+										<h4 class="modal-title font_muted"
+											style="letter-spacing: -0.5px;">Fill in your
+											Personal Information details.</h4>
+									</div>
+
+									<div
+										style="background-color: #eee;"
+										class="modal-body clearfix">
+
+										<div class="col-md-12">
+
+											<div class="form-group">
+												<div class="tp_font_h3" align="center">
+													Personal Information Form
+												</div>								
+											</div>
+
+												<div class="form-group">
+												<div class="tp_font_h3" align="center">
+													Personal Details
+												</div>							
+											</div>
+				
+
+										</div>
+
+									<div class="panel form-group tp_font_h3 row col-sm-12">
+  										<div>
+  											<label for="usr">Current Address Information:</label>
+  										</div>
+        								<div>
+        									<input id="curentAddress"  type="text"
+													  placeholder="Current Address" 
+													 ng-model="profile.addressBeingEdited.currentAddress"/>
+										</div>
+ 										 <div>
+ 										 	<label for="usr">Landmark:</label>
+ 										 </div>
+ 										 <div>
+ 										 	<input  id="currLandmark" type="text"
+														ng-model="profile.addressBeingEdited.currentLandmark"
+														autocomplete="on" placeholder="current Landmark"/>		
+ 										 </div>
+ 										 <div>
+													Personal Details Period of Stay: From:(MM/YY) To: (MM/YY)
+										</div>	
+										<div class="row col-md-12" >
+										<div class="col-md-5">
+													<input type="date" id="dob" class="form-control" ng-model="profile.addressBeingEdited.currStartDate" />	
+											</div>	
+											<div class="col-md-2">To</div>
+											<div class="col-md-5">		
+													<input type="date" id="dob" class="form-control" ng-model="profile.addressBeingEdited.currLastDate" />					
+										</div>
+										</div>
+									
+										<div>
+  											<label for="usr">Permanent Address Information:</label>
+  										</div>
+  										<div>
+        									<input id="firstname" class="form-control" type="text"
+													 name="firstname" placeholder="Current Address" 
+													 ng-model="profile.addressBeingEdited.PermanentAddress">
+										</div>
+ 										 <div>
+ 										 	<label for="usr">Landmark:</label>
+ 										 </div>
+ 										 <div>
+ 										 	<input type="address"
+														ng-model="profile.addressBeingEdited.permanentLandmark"
+														autocomplete="on" placeholder="Permanent Landmark"
+														style="margin: 0px 0px 0px 0;"
+														class="form-control  textarea_style" />		
+ 										 </div>
+
+ 										 <div>
+													Permanent Details Period of Stay: From:(MM/YY) To: (MM/YY)
+										</div>	
+										<div class="row col-md-12" >
+										<div class="col-md-5">
+													<input type="date" id="dob" class="form-control" ng-model="profile.addressBeingEdited.permanentStartDate" />	
+											</div>	
+											<div class="col-md-2">To</div>
+											<div class="col-md-5">		
+													<input type="date" id="dob" class="form-control" ng-model="profile.addressBeingEdited.permanentLastDate" />					
+										</div>
+										</div>
+ 										
+										<div>
+ 										 	<label for="usr">Contact Number:</label>
+ 										 </div>
+ 										 <div class="row col-md-12">
+ 										 <div class="col-md-6">
+        									<input id="mobileNum" class="form-control" type="text"
+													 name="mobileNum" placeholder="Mobile Number" 
+													 ng-model="profile.addressBeingEdited.mobileNum">
+										</div>
+
+										<div class="col-md-6">
+        									<input id="landlineNum" class="form-control" type="text"
+													 name="landlineNum" placeholder="Landline Number" 
+													 ng-model="profile.addressBeingEdited.landlineNum">
+										</div>
+										</div>
+									
+										
+									</div>
+		
+
+									<div class="row">
+										<div class="col-md-12">
+											<div style="text-align: center;" class="modal-footer">
+												<span ng-if="profile.qualificationBeingEdited.degree ==''">
+													<button type="button" class="btn btn-info" disabled>Save
+													</button>
+												</span> <span ng-if="profile.qualificationBeingEdited.degree !=''">
+													<button type="button" data-dismiss="modal"
+														class="btn btn-info" ng-click="savePersonalInfo('addressInformation')">Save
+													</button>
+												</span>
+
+												<button type="button" data-dismiss="modal"
+													class="btn btn-info"
+													ng-show="profile.addressBeingEdited.index != undefined"
+													ng-click="removeQualification(profile.addressBeingEdited)">
+													Remove</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+  
+							</div>
+						</div>
+						</div>
+					</div>
+					</div>
+				</div>
+
+				<!-- personal address section end -->
+				
+			<!-- Schooling details start -->
+<div style="padding-left: 0px; padding-right: 0px;"
+					class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div
+								style="margin-bottom: 0%; margin-top: 3%; padding-left: 0px;"
+								class="col-xs-8">
+								<div class="tp_mrgn_top_btm tp_font_h3">Acadmic details</div>
+							</div>
+							 <div style="text-align: right; margin-top: 3%;" class="col-xs-4">
+								<br />
+								<a id="qual_add"
+									ng-click="addAndOpenEmptyModel('schoolingDetailsInfo')" style="cursor: pointer;"
+									data-toggle="modal" data-target="#cert_modal"> <b
+									onclick="">+ Add Acadmic</b></a>
+							</div> 
+						</div>
+					</div>
+					 <div class="row">
+						<div class="col-md-12 zwayamPadremovedTmp">
+							<ul style="list-style-type: disc;">
+								<li ng-repeat="sc in profile.schoolingDetails" class="col-md-12  text-muted pencilOnHover divPencilHover ">
+									<span data-toggle="modal" data-target="#cert_modal"
+									ng-click="updatePersonalInfo($index,'schoolingDetailsInfo')"
+									style="position: absolute; right: 0px; top: 0px; padding: 1%; z-index: 555;"
+									class="glyphicon glyphicon-pencil"></span> 
+									<br/>
+									<table>
+									<tr>
+    								<td>&nbsp;{{ sc.Details }}</td>
+    								<td>&nbsp;{{ sc.SchoolName }}</td>
+    								<td>&nbsp;{{ sc.City }}</td>
+    								<td>&nbsp;{{ sc.Board }}</td>
+    								<td>&nbsp;{{ sc.Yop }}</td>
+    								<td>&nbsp;{{ sc.CGPA }}</td>
+
+    								</tr>
+									</table> 
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				  
+				<div style="background: white;" class="row">
+					<div style="padding-right: 0px; padding-left: 0px;"
+						class="col-md-12">
+						<div id="cert_modal" role="dialog" class="modal fade"
+							tabindex="-1">
+							<div class="modal-dialog" style="width: 60%">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div style="background-color: #eee;" class="modal-header">
+										<button type="button" data-dismiss="modal" class="close" ng-click="closeModel()">×</button>
+										<h4 class="modal-title font_muted">Academics – Schooling (After Offer Acceptance)</h4>
+									</div>
+									<div
+										style="background-color: #eee; overflow-y: auto; max-height: 450px;"
+										class="modal-body">
+
+											<div class="col-md-12">
+											<table id="classTable" class="table table-bordered" width="">
+										
+												<tbody>
+												<tr>
+   												<td>Details</td>
+   												<td>
+													<div>
+														<input id="Details" type="text" placeholder="Schooling Detail" ng-model="profile.schoolingDetailsBeingEdited.Details"/>
+														</div>
+												</td>
+												
+       										
+												</tr>
+												<tr>  
+												<td>School Name</td>
+												<td>
+													<div>
+														<input id="SchoolName" type="text" placeholder="School Name" ng-model="profile.schoolingDetailsBeingEdited.SchoolName"/>
+														</div>
+												</td>
+											
+												</tr>
+												<tr>
+												<td>City</td>
+												<td >
+													<div >
+														<input id="City" type="text" placeholder="City" ng-model="profile.schoolingDetailsBeingEdited.City"/>
+														</div>
+												</td>
+											
+												</tr>
+												<tr>
+												<td>State/Board</td>
+												<td >
+													<div >
+														<input id="Board" type="text" placeholder="State/Board" ng-model="profile.schoolingDetailsBeingEdited.Board"/>
+														</div>
+												</td>
+								
+												</tr>
+												<tr>
+												<td>Year of Passing</td>
+												<td >
+													<div >
+														<input id="yop" type="text" placeholder="Year of Passing" ng-model="profile.schoolingDetailsBeingEdited.Yop"/>
+														</div>
+												</td>
+											
+												</tr>
+												<tr>
+												<td>% /CGPA</td>
+												<td >
+													<div >
+														<input id="CGPA" type="text" placeholder="% / CGPA" ng-model="profile.schoolingDetailsBeingEdited.CGPA"/>
+														</div>
+												</td>
+											
+												</tr>
+
+
+												</tbody>
+												</table>
+											</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div style="text-align: center;" class="modal-footer">
+												<!-- <span ng-if="profile.schoolingDetailsBeingEdited.SchoolName == ''">
+													<button type="button" class="btn btn-info" disabled>Save
+													</button>
+												</span> --> <!-- <span ng-if="profile.schoolingDetailsBeingEdited.SchoolName != ''"> -->
+													<button type="button" data-dismiss="modal"
+														class="btn btn-info" ng-click="savePersonalInfo('schoolingDetailsInfo')">Save
+													</button>
+												</span>
+
+												<button type="button" data-dismiss="modal"
+													class="btn btn-info"
+													ng-show="profile.schoolingDetailsBeingEdited.index != undefined"
+													ng-click="removePersonalInfo(profile.schoolingDetailsBeingEdited)">
+													Remove</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<!-- Schooling details end -->
+
+
+
+
+			<!--Highest Completed Educationdetails start -->
+<div style="padding-left: 0px; padding-right: 0px;"
+					class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div
+								style="margin-bottom: 0%; margin-top: 3%; padding-left: 0px;"
+								class="col-xs-8">
+								<div class="tp_mrgn_top_btm tp_font_h3">Highest Completed Education</div>
+							</div>
+							 <div style="text-align: right; margin-top: 3%;" class="col-xs-4">
+								<br />
+								<a id="qual_add"
+									ng-click="addAndOpenEmptyModel('highestEduDetailsInfo')" style="cursor: pointer;"
+									data-toggle="modal" data-target="#high_edu_modal"> <b
+									onclick="">+ Add Highest Education details</b></a>
+							</div> 
+						</div>
+					</div>
+					
+					 <div class="row">
+						<div class="col-md-12 zwayamPadremovedTmp">
+							<ul style="list-style-type: disc;">
+								 <li ng-repeat="highestEdu in profile.highestEduDetails" class="col-md-12  text-muted pencilOnHover divPencilHover ">
+									<span data-toggle="modal" data-target="#high_edu_modal"
+									ng-click="updatePersonalInfo($index,'highestEduDetailsInfo')"
+									style="position: absolute; right: 0px; top: 0px; padding: 1%; z-index: 555;"
+									class="glyphicon glyphicon-pencil"></span> 
+									<div class="row">
+									{{ highestEdu.ClgName_high_edu }}
+									&nbsp;{{ highestEdu.ClgName_2ndHigh_edu }}
+									&nbsp;{{ highestEdu.CollegeAddress_high_edu }}
+									&nbsp;{{ highestEdu.CollegeAddress_2ndHigh_edu }}
+									&nbsp;{{ highestEdu.UniversityName_high_edu }}
+									&nbsp;{{ highestEdu.UniversityName_2ndHigh_edu }}
+									
+									<br/>
+									&nbsp;{{ highestEdu.UniversityAddress_high_edu }}
+									&nbsp;{{ highestEdu.UniversityAddress_2ndHigh_edu }}
+									&nbsp;{{ highestEdu.Subject_high_edu }}
+									&nbsp;{{ highestEdu.Subject_2ndHigh_edu }}
+									&nbsp;{{ highestEdu.UniversityName_high_edu }}
+									&nbsp;{{ highestEdu.UniversityName_2ndHigh_edu }}</div>
+
+
+
+    							<!-- 	DegreeType_high_edu,DegreeType_2ndHigh_edu,startdate_high_edu,enddate_high_edu,startdate_2ndHigh_edu,enddate_2ndHigh_edu,CGPA_high_edu,CGPA_2ndHigh_edu,RollNo_high_edu,RollNo_2ndHigh_edu,Graduated_high_edu,Graduated_2ndHigh_edu,Program_high_edu,Program_2ndHigh_edu -->
+    								</tr>
+									</table>  
+								</li> 
+							</ul>
+						</div>
+					</div>
+
+				</div>
+
+
+
+				<div style="background: white;" class="row">
+					<div style="padding-right: 0px; padding-left: 0px;"
+						class="col-md-12">
+						<div id="high_edu_modal" role="dialog" class="modal fade"
+							tabindex="-1">
+							<div class="modal-dialog" style="width: 60%">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div style="background-color: #eee;" class="modal-header">
+										<button type="button" data-dismiss="modal" class="close" ng-click="closeModel()">×</button>
+										<h4 class="modal-title font_muted" align="center">Academics:- Highest Completed Education</h4>
+									</div>
+									<div
+										style="background-color: #eee; overflow-y: auto; max-height: 450px;"
+										class="modal-body">
+
+											<div class="col-md-12">
+											<table id="classTable" class="table table-bordered">
+											 <thead >
+   												<tr>
+   												<td>
+													<div >Details</div>
+												</td>
+   												<td>
+													<div>Highest Education (PG/Graduation/Diploma)</div>
+												</td>
+													<td>
+													<div>2nd Highest Education (Graduation/Diploma)</div>
+												</td>
+        									</tr>
+												</thead>
+												<tbody>
+												<tr>  
+												<td>
+													<div >
+														College Name*
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="HigherClgName" type="text" placeholder="College Name" ng-model="profile.highestEduDetailsBeingEdited.ClgName_high_edu"/>
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="SecHigherClgName" type="text" placeholder="College Name" ng-model="profile.highestEduDetailsBeingEdited.ClgName_2ndHigh_edu"/>
+														</div>
+												</td>
+												</tr>
+												<tr>  
+												<td>
+													<div >
+														College Address
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="CollegeAddress1" type="text" placeholder="College Address" ng-model="profile.highestEduDetailsBeingEdited.CollegeAddress_high_edu"/>
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="CollegeAddress2" type="text" placeholder="College Address" ng-model="profile.highestEduDetailsBeingEdited.CollegeAddress_2ndHigh_edu"/>
+														</div>
+												</td>
+												</tr>
+
+												<tr>  
+												<td>
+													<div>University Name*</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="UniversityName1" type="text" placeholder="University Name" ng-model="profile.highestEduDetailsBeingEdited.UniversityName_high_edu"/>
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="UniversityName2" type="text" placeholder="University Name" ng-model="profile.highestEduDetailsBeingEdited.UniversityName_2ndHigh_edu"/>
+														</div>
+												</td>
+												</tr>
+
+												<tr>  
+												<td>
+													<div>University Address*</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="UniversityAddress1" type="text" placeholder="University Address" ng-model="profile.highestEduDetailsBeingEdited.UniversityAddress_high_edu"/>
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="UniversityAddress2" type="text" placeholder="University Address" ng-model="profile.highestEduDetailsBeingEdited.UniversityAddress_2ndHigh_edu"/>
+														</div>
+												</td>
+												</tr>
+
+												<tr>  
+												<td>
+													<div>Subject / Major</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="Subject1" type="text" placeholder="major subject" ng-model="profile.highestEduDetailsBeingEdited.Subject_high_edu"/>
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="Subject2" type="text" placeholder="major subject" ng-model="profile.highestEduDetailsBeingEdited.Subject_2ndHigh_edu"/>
+														</div>
+												</td>
+												</tr>
+												<tr>  
+												<td>
+													<div>Type of Degree*</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="DegreeType1" type="text" placeholder="degree type" ng-model="profile.highestEduDetailsBeingEdited.DegreeType_high_edu"/>
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="DegreeType2" type="text" placeholder="degree type" ng-model="profile.highestEduDetailsBeingEdited.DegreeType_2ndHigh_edu"/>
+														</div>
+												</td>
+												</tr>
+												<tr>  
+												<td>
+													<div>Duration*(DD/MM/YYYY)</div>
+												</td>
+												<td>
+													<div >
+													<input type="date" id="dob_1_1" class="form-control" ng-model="profile.highestEduDetailsBeingEdited.startdate_high_edu" />
+													</div>&nbsp;To
+													<div >
+													<input type="date" id="dob_1_2" class="form-control" ng-model="profile.highestEduDetailsBeingEdited.enddate_high_edu" />
+													</div>
+												</td>
+												<td>
+													<div >
+													<input type="date" id="dob_2_1" class="form-control" ng-model="profile.highestEduDetailsBeingEdited.startdate_2ndHigh_edu" />
+													</div>&nbsp;To
+													<div >
+													<input type="date" id="dob_2_2" class="form-control" ng-model="profile.highestEduDetailsBeingEdited.enddate_2ndHigh_edu" />
+													</div>
+												</td>
+												</tr>
+
+												<tr>  
+												<td>
+													<div>Graduation Date*</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="GraduationDate1" type="text" placeholder="Graduation Date" ng-model="profile.highestEduDetailsBeingEdited.GraduationDate_high_edu"/>
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="GraduationDate2" type="text" placeholder="Graduation Date" ng-model="profile.highestEduDetailsBeingEdited.GraduationDate_2ndHigh_edu"/>
+														</div>
+												</td>
+												</tr>
+												<tr>  
+												<td>
+													<div>% or CGPA</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="CGPA1" type="text" placeholder="Enter % or CGPA" ng-model="profile.highestEduDetailsBeingEdited.CGPA_high_edu"/>
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="CGPA2" type="text" placeholder="Enter % or CGPA" ng-model="profile.highestEduDetailsBeingEdited.CGPA_2ndHigh_edu"/>
+														</div>
+												</td>
+												</tr>
+												<tr>  
+												<td>
+													<div>Roll No./ Enrollment No.*/div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="RollNo1" type="text" placeholder="Enetr Roll No." ng-model="profile.highestEduDetailsBeingEdited.RollNo_high_edu"/>
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="RollNo2" type="text" placeholder="Enter Roll No." ng-model="profile.highestEduDetailsBeingEdited.RollNo_2ndHigh_edu"/>
+														</div>
+												</td>
+												</tr>
+
+
+												<tr>  
+												<td>
+													<div>Graduated</div>
+												</td>
+												<td>
+														<div align="center">
+														 <label class="radio-inline"><input type="radio" ng-model="profile.highestEduDetailsBeingEdited.Graduated_high_edu" name="rdoResult" value="yes">Yes</label>
+
+            											<label class="radio-inline"><input type="radio" ng-model="profile.highestEduDetailsBeingEdited.Graduated_high_edu" 
+            											name="rdoResult" value="no">No</label>
+            											</div>
+												</td>
+												<td>
+													<div align="center">
+														 <label class="radio-inline"><input type="radio" ng-model="profile.highestEduDetailsBeingEdited.Graduated_2ndHigh_edu" name="rdoResult" value="yes">Yes</label>
+
+            											<label class="radio-inline"><input type="radio" ng-model="profile.highestEduDetailsBeingEdited.Graduated_2ndHigh_edu" 
+            											name="rdoResult" value="no">No</label>
+            											</div>
+												</td>
+												</tr>
+
+												<tr>  
+												<td>
+													<div>Program</div>
+												</td>
+												<td>
+													<div align="center">
+														 <label class="radio-inline"><input type="radio" ng-model="profile.highestEduDetailsBeingEdited.Program_high_edu" name="rdoResult" value="FullTime">Full Time</label>
+														
+            											<label class="radio-inline"><input type="radio" ng-model="profile.highestEduDetailsBeingEdited.Program_high_edu" 
+            											name="rdoResult" value="PartTime">Part Time</label>
+            											
+            											<label class="radio-inline"><input type="radio" ng-model="profile.highestEduDetailsBeingEdited.Program_high_edu" 
+            											name="rdoResult" value="Correspondence">Correspondence</label>
+            											</div>
+												</td>
+												<td>
+													<div align="center">
+														 <label class="radio-inline"><input type="radio" ng-model="profile.highestEduDetailsBeingEdited.Program_2ndHigh_edu" name="rdoResult" value="FullTime">Full Time</label>
+
+            											<label class="radio-inline"><input type="radio" ng-model="profile.highestEduDetailsBeingEdited.Program_2ndHigh_edu" 
+            											name="rdoResult" value="PartTime">Part Time</label>
+
+            											<label class="radio-inline"><input type="radio" ng-model="profile.highestEduDetailsBeingEdited.Program_2ndHigh_edu" 
+            											name="rdoResult" value="Correspondence">Correspondence</label>
+            											</div>
+												</td>
+												</tr>
+
+												</tbody>
+												</table>
+											</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div style="text-align: center;" class="modal-footer">
+												<span ng-if="profile.highestEduDetailsBeingEdited.CollegeAddress_high_edu == ''">
+													<button type="button" class="btn btn-info" disabled>Save
+													</button>
+												</span> <span >
+													<button type="button" data-dismiss="modal"
+														class="btn btn-info" ng-click="savePersonalInfo('highestEduDetailsInfo')">Save
+													</button>
+												</span>
+
+												<button type="button" data-dismiss="modal"
+													class="btn btn-info"
+													ng-show="profile.highestEduDetailsBeingEdited.index != undefined"
+													ng-click="removePersonalInfo(profile.highestEduDetailsBeingEdited)">
+													Remove</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				
+
+				<!--Highest Completed Educationdetails end -->
+
+
+<!--Employment Details start -->
+<div style="padding-left: 0px; padding-right: 0px;"
+					class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div
+								style="margin-bottom: 0%; margin-top: 3%; padding-left: 0px;"
+								class="col-xs-8">
+								<div class="tp_mrgn_top_btm tp_font_h3">Employment Details</div>
+							</div>
+							 <div style="text-align: right; margin-top: 3%;" class="col-xs-4">
+								<br />
+								<a id="qual_add"
+									ng-click="addAndOpenEmptyModel('employmentDetailsInfo')" style="cursor: pointer;"
+									data-toggle="modal" data-target="#emp_detail_modal"> <b
+									onclick="">+ Add Employment Details</b></a>
+							</div> 
+						</div>
+					</div>
+					
+					 <div class="row">
+						<div class="col-md-12 zwayamPadremovedTmp">
+							<ul style="list-style-type: disc;">
+								 <li ng-repeat="empDetail in profile.employmentDetails" class="col-md-12  text-muted pencilOnHover divPencilHover ">
+									<span data-toggle="modal" data-target="#emp_detail_modal"
+									ng-click="updatePersonalInfo($index,'employmentDetailsInfo')"
+									style="position: absolute; right: 0px; top: 0px; padding: 1%; z-index: 555;"
+									class="glyphicon glyphicon-pencil"></span> 
+									
+									<div class="row">
+									{{ empDetail.companyName}}
+									&nbsp;{{ empDetail.positionHeld }}
+									&nbsp;{{ empDetail.address }}
+									&nbsp;
+									({{empDetail.period.to |  date:'dd MMM yyyy'}} <b>to</b> {{empDetail.period.from |  date:'dd MMM yyyy'}})
+									&nbsp;{{ empDetail.CTC }} 
+									&nbsp;{{ empDetail.Reasonforleaving }}
+									&nbsp;{{ empDetail.NoticePeriod }}
+									
+									&nbsp;{{ empDetail.EmployeeCode }}
+									
+									&nbsp;{{ empDetail.ReportingManager }}
+									&nbsp;{{ empDetail.Designation_rm }}
+									&nbsp;{{ empDetail.ContactNo }}
+									&nbsp;{{ empDetail.EmailID }}
+									&nbsp;{{ empDetail.empType }}
+									&nbsp;{{ empDetail.ClientInfo }}
+									&nbsp;{{ empDetail.reference }}
+									&nbsp;{{ empDetail.refDate }}</div>
+
+								</li> 
+							</ul>
+						</div>
+					</div>
+
+				</div>
+
+
+				<div style="background: white;" class="row">
+					<div style="padding-right: 0px; padding-left: 0px;"
+						class="col-md-12">
+						<div id="emp_detail_modal" role="dialog" class="modal fade"
+							tabindex="-1">
+							<div class="modal-dialog" style="width: 60%">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div style="background-color: #eee;" class="modal-header">
+										<button type="button" data-dismiss="modal" class="close" ng-click="closeModel()">×</button>
+										<h4 class="modal-title font_muted" align="center">Employment Details</h4>
+									</div>
+									<div
+										style="background-color: #eee; overflow-y: auto; max-height: 450px;"
+										class="modal-body">
+
+											<div class="col-md-12">
+											<table id="classTable" class="table table-bordered">
+											 <thead >
+   												<tr>
+   												<td>
+													<div >Details</div>
+												</td>
+   												<td>
+													<div> Employer</div>
+												</td>
+													
+        									</tr>
+												</thead>
+												<tbody>
+												<tr>  
+												<td>
+													<div>Company Name* (Pre-offer)</div>
+												</td>
+												<td>
+													<div >
+														<input id="companyName" type="text" placeholder="company Name" ng-model="profile.employmentDetailsBeingEdited.companyName"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>Position Held & Dept.* (Pre-offer)</div>
+												</td>
+												<td>
+													<div >
+														<input id="PositionHeld" type="text" placeholder="Position Held" ng-model="profile.employmentDetailsBeingEdited.positionHeld"/>
+														</div>
+												</td>
+												
+												</tr>
+
+												<tr>  
+												<td>
+													<div>Address (Main office and branch where worked) with pin-code*</div>
+												</td>
+												<td>
+													<div >
+														<input id="address" type="text" placeholder="address" ng-model="profile.employmentDetailsBeingEdited.address"/>
+														</div>
+												</td>
+												
+												</tr>
+
+												<tr>  
+												<td>
+													<div>Telephone*</div>
+												</td>
+												<td>
+													<div>
+														<input id="Telephone" type="text" placeholder="Telephone " ng-model="profile.employmentDetailsBeingEdited.Telephone"/>
+														</div>
+												</td>
+												
+												</tr>
+
+												<tr>  
+												<td>
+													<div>Period of Employment* (DD/MM/YY) (Pre-offer)</div>
+												</td>
+												<td>
+													<div>
+														<input id="PeriodFrom" type="date" ng-model="profile.employmentDetailsBeingEdited.period.to"/>
+
+														<input id="PeriodTo" type="date" ng-model="profile.employmentDetailsBeingEdited.period.from"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>CTC / Remunerations* (Pre-offer)[*Not mandatory for non-India]</div>
+												</td>
+												<td>
+													<div>
+														<input id="CTC" type="text" placeholder="CTC" ng-model="profile.employmentDetailsBeingEdited.CTC"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>Reason for leaving* (Pre-offer)[text input limited to 50 chars]</div>
+												</td>
+													<td>
+													<div>
+														<input id="Reasonforleaving" type="text" placeholder="Reason for leaving" ng-model="profile.employmentDetailsBeingEdited.Reasonforleaving"/>
+														</div>
+												</td>
+												
+												</tr>
+
+												<tr>  
+												<td>
+													<div>Notice Period*(in days)[Pre-offer]</div>
+												</td>
+												<td>
+													<div>
+														<input id="NoticePeriod" type="text" placeholder="Notice Period" ng-model="profile.employmentDetailsBeingEdited.NoticePeriod"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>Employee Code/ID *</div>
+												</td>
+												<td>
+													<div>
+
+														<input id="EmployeeCode" type="text" placeholder="Employee Code" ng-model="profile.employmentDetailsBeingEdited.EmployeeCode"/>
+														</div>
+												</td>
+											
+												</tr>
+												<tr>  
+												<td>
+													<div>Name of Reporting Manager*</div>
+												</td>
+												<td>
+													<div>
+														<input id="ReportingManager" type="text" placeholder=" Reporting Manager" ng-model="profile.employmentDetailsBeingEdited.ReportingManager"/>
+														</div>
+												</td>
+												
+												</tr>
+
+
+												<tr>  
+												<td>
+													<div>Designation and Dept. of reporting Manager*</div>
+												</td>
+												<td>
+													<div>
+														<input id="Designation" type="text" placeholder="Designation of Reporting manager" ng-model="profile.employmentDetailsBeingEdited.Designation_rm"/>
+														</div>
+												</td>
+												
+												</tr>
+
+												<tr>  
+												<td>
+													<div>Contact No. of Reporting Manager*</div>
+												</td>
+												<td>
+													<div>
+														<input id="ContactNo" type="text" placeholder="ContactNo Reporting manager" ng-model="profile.employmentDetailsBeingEdited.ContactNo"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>Email ID of reporting Manager*</div>
+												</td>
+												<td>
+													<div>
+														<input id="EmailID" type="text" placeholder="EmailID Reporting manager" ng-model="profile.employmentDetailsBeingEdited.EmailID"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>Permanent/Contractual*[Pre-offer]</div>
+												</td>
+												<td>
+													<div>
+														<div>
+														 <label class="radio-inline"><input type="radio" ng-model="profile.employmentDetailsBeingEdited.empType" name="rdoResult" value="yes">Permanent</label>
+
+            											<label class="radio-inline"><input type="radio" ng-model="profile.employmentDetailsBeingEdited.empType" name="rdoResult" value="no">Contractual</label>       										
+												</div>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>Client Name & Address if worked at client location on Contract*</div>
+												</td>
+												<td>
+													<div>
+														<input id="ClientInfo" type="text" placeholder="Enter ClientInfo" ng-model="profile.employmentDetailsBeingEdited.ClientInfo"/>
+														</div>
+												</td>
+												
+												</tr>
+
+												
+												<tr>  
+												<td>
+													<div>Can a reference be take now? *</div>
+												</td>
+												<td>
+														<div>
+														 <label class="radio-inline"><input type="radio" ng-model="profile.employmentDetailsBeingEdited.reference" name="rdoResult" value="yes">Yes</label>
+
+            											<label class="radio-inline"><input type="radio" ng-model="profile.employmentDetailsBeingEdited.reference" name="rdoResult" value="no">No</label>       										
+												</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>If no, when can it be taken?*</div>
+												</td>
+												<td>
+													<div>
+														<input id="refDate" type="date"  ng-model="profile.employmentDetailsBeingEdited.refDate"/>
+														</div>
+												</td>
+												
+												</tr>
+
+												</tbody>
+												</table>
+											</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div style="text-align: center;" class="modal-footer">
+												 <span >
+													<button type="button" data-dismiss="modal"
+														class="btn btn-info" ng-click="savePersonalInfo('employmentDetailsInfo')">Save
+													</button>
+												</span>
+
+												<button type="button" data-dismiss="modal"
+													class="btn btn-info"
+													ng-show="profile.certificationBeingEdited.index != undefined"
+													ng-click="removeCertification(profile.certificationBeingEdited)">
+													Remove</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				
+
+				<!--Employment Details end -->
+
+
+
+				<!--previously works anywhere start -->
+<div style="padding-left: 0px; padding-right: 0px;"
+					class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div
+								style="margin-bottom: 0%; margin-top: 3%; padding-left: 0px;"
+								class="col-xs-8">
+								<div class="tp_mrgn_top_btm tp_font_h3">experience certificates </div>
+							</div>
+							 <div style="text-align: right; margin-top: 3%;" class="col-xs-4">
+								<br />
+								<a id="qual_add"
+									ng-click="addAndOpenEmptyModel('workExperenceInfo')" style="cursor: pointer;"
+									data-toggle="modal" data-target="#experi_detail_modal"> <b
+									onclick="">+ Add experience certificates Details</b></a>
+							</div> 
+						</div>
+					</div>
+					
+					 <div class="row">
+						<div class="col-md-12 zwayamPadremovedTmp">
+							<ul style="list-style-type: disc;">
+								 <li ng-repeat="workExp in profile.workExperenceDetails" class="col-md-12  text-muted pencilOnHover divPencilHover ">
+									<span data-toggle="modal" data-target="#experi_detail_modal"
+									ng-click="updatePersonalInfo($index,'workExperenceInfo')"
+									style="position: absolute; right: 0px; top: 0px; padding: 1%; z-index: 555;"
+									class="glyphicon glyphicon-pencil"></span> 
+									<br/>
+									<table>
+									<tr>
+    								<td>&nbsp;{{ workExp.companyName }}</td>
+    								<td>&nbsp;{{ workExp.Address }}</td>
+    								<td>&nbsp;
+									({{workExp.period.to |  date:'dd MMM yyyy'}} <b>to</b> {{workExp.period.from |  date:'dd MMM yyyy'}})
+									</td>
+    								<td>&nbsp;{{ workExp.Reasonforleaving }}</td>
+    								<td>&nbsp;{{ workExp.ReportingManagerDetail }}</td>
+    							
+    								</tr>
+									</table>  
+								</li> 
+							</ul>
+						</div>
+					</div>
+
+				</div>
+
+
+
+				<div style="background: white;" class="row">
+					<div style="padding-right: 0px; padding-left: 0px;"
+						class="col-md-12">
+						<div id="experi_detail_modal" role="dialog" class="modal fade"
+							tabindex="-1">
+							<div class="modal-dialog" style="width: 60%">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div style="background-color: #eee;" class="modal-header">
+										<button type="button" data-dismiss="modal" class="close" ng-click="closeModel()">×</button>
+										<h4 class="modal-title font_muted">Please mention any other employers you have worked with previously.
+									<div
+										style="background-color: #eee; overflow-y: auto; max-height: 450px;"
+										class="modal-body">
+
+											<div >
+											<table id="classTable" class="table table-bordered">
+											 
+												<tbody>
+												<tr>  
+												<td>
+													<div >Company Name</div>
+												</td>
+												<td>
+													<div >
+														<input id="companyName" type="text" placeholder="company Name" ng-model="profile.workExperenceDetailsBeingEdited.companyName"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div >Address</div>
+												</td>
+												<td>
+													<div >
+														<input id="Address" type="text" placeholder="Address" ng-model="profile.workExperenceDetailsBeingEdited.Address"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>Period of Employment(DD/MM/YY to DD/MM/YY</div>
+												</td>
+												<td>
+													<div class="row">
+														<input id="periodto" type="date"  ng-model="profile.workExperenceDetailsBeingEdited.period.to"/>
+														<input id="periodfrom" type="date"  ng-model="profile.workExperenceDetailsBeingEdited.period.from"/>
+														</div>
+												</td>
+												
+												</tr>
+
+											<tr>  
+												<td>
+													<div>Reason for Leaving</div>
+												</td>
+												<td>
+													<div >
+														<input id="Reasonforleaving" type="text" placeholder="Reason for Leaving" ng-model="profile.workExperenceDetailsBeingEdited.Reasonforleaving"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>
+													<td>
+													<div>Reporting Manager's Details</div>
+												</td>
+
+													<td>
+													<div >
+														<input id="ReportingManagerDetail" type="text" placeholder="detail" ng-model="profile.workExperenceDetailsBeingEdited.ReportingManagerDetail"/>
+														</div>
+												</td>
+												</tr>
+
+												</tbody>
+												</table>
+											</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div style="text-align: center;" class="modal-footer">
+												<!-- <span ng-if="profile.certificationBeingEdited.name == ''">
+													<button type="button" class="btn btn-info" disabled>Save
+													</button>
+												</span> --> <span >
+													<button type="button" data-dismiss="modal"
+														class="btn btn-info" ng-click="savePersonalInfo('workExperenceInfo')">Save
+													</button>
+												</span>
+
+												<button type="button" data-dismiss="modal"
+													class="btn btn-info"
+													ng-show="profile.certificationBeingEdited.index != undefined"
+													ng-click="removeCertification(profile.certificationBeingEdited)">
+													Remove</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				
+
+				<!--previously works anywhere end -->
+
+
+
+				<!--Overall Experience Details start -->
+<div style="padding-left: 0px; padding-right: 0px;"
+					class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div
+								style="margin-bottom: 0%; margin-top: 3%; padding-left: 0px;"
+								class="col-xs-8">
+								<div class="tp_mrgn_top_btm tp_font_h3">Overall Experiences</div>
+							</div>
+							 <div style="text-align: right; margin-top: 3%;" class="col-xs-4">
+								<br />
+								<a id="qual_add"
+									ng-click="addAndOpenEmptyModel('overallExpInfo')" style="cursor: pointer;"
+									data-toggle="modal" data-target="#overall_emp_detail_modal"> <b
+									onclick="">+ Add -Overall Experience Details </b></a>
+							</div> 
+						</div>
+					</div>
+					
+					 <div class="row">
+						<div class="col-md-12 zwayamPadremovedTmp">
+							<ul style="list-style-type: disc;">
+								 <li ng-repeat="totalExp in profile.overallExpDetails" class="col-md-12  text-muted pencilOnHover divPencilHover ">
+									<span data-toggle="modal" data-target="#overall_emp_detail_modal"
+									ng-click="updatePersonalInfo($index,'overallExpInfo')"
+									style="position: absolute; right: 0px; top: 0px; padding: 1%; z-index: 555;"
+									class="glyphicon glyphicon-pencil"></span> 
+									<br/>
+									<table>
+									<tr>
+    								<td>&nbsp;{{ totalExp.totalExp }}</td>
+    								<td>&nbsp;{{ totalExp.releventExp }}</td>
+    								<td>&nbsp;{{ totalExp.nonITExp }}</td>
+    								
+    								</tr>
+									</table>  
+								</li> 
+							</ul>
+						</div>
+					</div>
+					     
+                                    
+
+				</div>
+
+
+
+				<div style="background: white;" class="row">
+					<div style="padding-right: 0px; padding-left: 0px;"
+						class="col-md-12">
+						<div id="overall_emp_detail_modal" role="dialog" class="modal fade"
+							tabindex="-1">
+							<div class="modal-dialog" style="width: 60%">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div style="background-color: #eee;" class="modal-header">
+										<button type="button" data-dismiss="modal" class="close" ng-click="closeModel()">×</button>
+										<h4 class="modal-title font_muted" align="center">Overall Experience Details (in months)</h4>
+									</div>
+									<div
+										style="background-color: #eee; overflow-y: auto; max-height: 450px;"
+										class="modal-body">
+
+											<div class="col-md-12">
+											<table id="classTable" class="table table-bordered">
+											
+												<tbody>
+												<tr>  
+												<td>
+													<div>Total Experience</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="HigherClgName" type="text" placeholder="total Experience" ng-model="profile.overallExpDetailsBeingEdited.totalExp"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>Relevant IT Experience</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="CollegeAddress1" type="text" placeholder="relevent Experience" ng-model="profile.overallExpDetailsBeingEdited.releventExp"/>
+														</div>
+												</td>
+												
+												</tr>
+
+												<tr>  
+												<td>
+													<div>Non IT experience</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="UniversityName1" type="text" placeholder="non IT Experience" ng-model="profile.overallExpDetailsBeingEdited.nonITExp"/>
+														</div>
+												</td>
+												
+												</tr>
+
+												
+												</tbody>
+												</table>
+											</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div style="text-align: center;" class="modal-footer">
+												<!-- <span ng-if="profile.certificationBeingEdited.name == ''">
+													<button type="button" class="btn btn-info" disabled>Save
+													</button>
+												</span> --> <span >
+													<button type="button" data-dismiss="modal"
+														class="btn btn-info" ng-click="savePersonalInfo('overallExpInfo')">Save
+													</button>
+												</span>
+
+												<button type="button" data-dismiss="modal"
+													class="btn btn-info"
+													ng-show="profile.certificationBeingEdited.index != undefined"
+													ng-click="removeCertification(profile.certificationBeingEdited)">
+													Remove</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				
+
+				<!--Overall Experience Details end -->
+
+				<!--Gaps in  Employment/ Education start -->
+<div style="padding-left: 0px; padding-right: 0px;"
+					class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div
+								style="margin-bottom: 0%; margin-top: 3%; padding-left: 0px;"
+								class="col-xs-8">
+								<div class="tp_mrgn_top_btm tp_font_h3">Gaps in  Employment/ Education</div>
+							</div>
+							 <div style="text-align: right; margin-top: 3%;" class="col-xs-4">
+								<br />
+								<a id="qual_add"
+									ng-click="addAndOpenEmptyModel('gapInfo')" style="cursor: pointer;"
+									data-toggle="modal" data-target="#gap_detail_modal"> <b
+									onclick="">+ Add Gaps in  Employment/ Education Details</b></a>
+							</div> 
+						</div>
+					</div>
+					
+					 <div class="row">
+						<div class="col-md-12 zwayamPadremovedTmp">
+							<ul style="list-style-type: disc;">
+								 <li ng-repeat="gap in profile.gapDetails" class="col-md-12  text-muted pencilOnHover divPencilHover ">
+									<span data-toggle="modal" data-target="#gap_detail_modal"
+									ng-click="updatePersonalInfo($index,'gapInfo')"
+									style="position: absolute; right: 0px; top: 0px; padding: 1%; z-index: 555;"
+									class="glyphicon glyphicon-pencil"></span> 
+									<br/>
+									
+									<table>
+									<tr>
+									<td>
+										({{gap.period.to |  date:'dd MMM yyyy'}} <b>to</b> {{gap.period.from |  date:'dd MMM yyyy'}})
+										</td>
+
+    								<td>&nbsp;{{ gap.reason }}</td>
+    								<td>&nbsp;{{ gap.gapType }}</td>
+    								
+    								</tr>
+									</table>  
+								</li> 
+							</ul>
+						</div>
+					</div>
+
+				</div>
+
+
+
+				<div style="background: white;" class="row">
+					<div style="padding-right: 0px; padding-left: 0px;"
+						class="col-md-12">
+						<div id="gap_detail_modal" role="dialog" class="modal fade"
+							tabindex="-1">
+							<div class="modal-dialog" style="width: 60%">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div style="background-color: #eee;" class="modal-header">
+										<button type="button" data-dismiss="modal" class="close" ng-click="closeModel()">×</button>
+										<h4 class="modal-title font_muted" align="center">Gaps in  Employment/ Education</h4>
+									</div>
+									<div
+										style="background-color: #eee; overflow-y: auto; max-height: 450px;"
+										class="modal-body">
+
+											<div class="col-md-12">
+											 <table class="table" role="table" >
+   												
+    											 <tbody>
+    											 <tr>
+          											<th  align="center" class="col-md-6"><div>Gaps in  Employment/ Education</div>
+													<table>
+													<thead>
+														<tr>
+															<th>to</th>
+															<th>from</th>
+															<th>reason</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>
+															<div>
+																<input id="HigherClgName" type="date" ng-model="profile.gapDetailsBeingEdited.period.to"/>
+														</div>
+														</td>
+														<td>
+														<div>
+																<input id="HigherClgName" type="date"  ng-model="profile.gapDetailsBeingEdited.period.from"/>
+														</div>
+														</td>
+														<td>
+														<div>
+																<input id="HigherClgName" type="text" placeholder="reason" ng-model="profile.gapDetailsBeingEdited.reason"/>
+														</div>
+														</td>
+															
+														</tr>
+													</tbody>
+												</table>
+          											</th>  
+          											<th  align="center" class="col-md-6"><div>Type (Employment/ Education)</div>
+          											<table>
+          												<tbody>
+          													<tr>
+          														<td>
+          														<div>
+          															<input id="HigherClgName" type="text" placeholder="reason" ng-model="profile.gapDetailsBeingEdited.gapType"/></div>
+          														</td>
+          													</tr>
+          												</tbody>
+          											</table>
+          											</th>  
+      											<tr>
+												</tbody>
+
+
+												</table>
+											</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div style="text-align: center;" class="modal-footer">
+												<!-- <span ng-if="profile.certificationBeingEdited.name == ''">
+													<button type="button" class="btn btn-info" disabled>Save
+													</button>
+												</span> --> <span >
+													<button type="button" data-dismiss="modal"
+														class="btn btn-info" ng-click="savePersonalInfo('gapInfo')">Save
+													</button>
+												</span>
+
+												<button type="button" data-dismiss="modal"
+													class="btn btn-info"
+													ng-show="profile.certificationBeingEdited.index != undefined"
+													ng-click="removeCertification(profile.certificationBeingEdited)">
+													Remove</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				
+
+				<!--Gaps in  Employment/ Education end -->
+
+
+
+				<!--Professional References start familyMembersAtMindtreeInfo-->
+<div style="padding-left: 0px; padding-right: 0px;"
+					class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div
+								style="margin-bottom: 0%; margin-top: 3%; padding-left: 0px;"
+								class="col-xs-8">
+								<div class="tp_mrgn_top_btm tp_font_h3">Professional References</div>
+							</div>
+							 <div style="text-align: right; margin-top: 3%;" class="col-xs-4">
+								<br />
+								<a id="qual_add"
+									ng-click="addAndOpenEmptyModel('familyMembersAtMindtreeInfo')" style="cursor: pointer;"
+									data-toggle="modal" data-target="#Prof_detail_modal"> <b
+									onclick="">+ Add Professional References Details</b></a>
+							</div> 
+						</div>
+					</div>
+					
+					 <div class="row">
+						<div class="col-md-12 zwayamPadremovedTmp">
+							<ul style="list-style-type: disc;">
+								 <li ng-repeat="pr in profile.professionalReferencesDetails" class="col-md-12  text-muted pencilOnHover divPencilHover ">
+									<span data-toggle="modal" data-target="#Prof_detail_modal"
+									ng-click="updatePersonalInfo($index,'professionalReferencesInfo')"
+									style="position: absolute; right: 0px; top: 0px; padding: 1%; z-index: 555;"
+									class="glyphicon glyphicon-pencil"></span> 
+									<br/>
+									<table>
+									
+									<tr>
+    								<td>&nbsp;{{ pr.name }}</td>
+    								<td>&nbsp;{{ pr.contactnumber }}</td>
+    								<td>&nbsp;{{ pr.currentlyWorking }}</td>
+    								<td>&nbsp;{{ pr.designation }}</td>
+    								<td>&nbsp;{{ pr.alternateNumber }}</td>
+    								
+    								</tr>
+									</table>  
+								</li> 
+							</ul>
+						</div>
+					</div>
+<!-- 					  <pre>HighestEduDetailsObj={{HighestEduDetailsObj}}</pre>
+ -->
+				</div>
+
+
+
+				<div style="background: white;" class="row">
+					<div style="padding-right: 0px; padding-left: 0px;"
+						class="col-md-12">
+						<div id="Prof_detail_modal" role="dialog" class="modal fade"
+							tabindex="-1">
+							<div class="modal-dialog" style="width: 60%">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div style="background-color: #eee;" class="modal-header">
+										<button type="button" data-dismiss="modal" class="close" ng-click="closeModel()">×</button>
+										<h4 class="modal-title font_muted" align="center">Profecanal reference</h4>
+									</div>
+									<div
+										style="background-color: #eee; overflow-y: auto; max-height: 450px;"
+										class="modal-body">
+
+											<div class="col-md-12">
+											<table id="classTable" class="table table-bordered">
+											 <thead >
+   												<tr>
+   												<td>
+													<div >Details</div>
+												</td>
+   												<td>
+													<div>Professional Reference </div>
+												</td>
+													<td>
+        										</tr>
+												</thead>
+
+												<tbody>
+												
+                                    
+												<tr>  
+												<td>
+													<div>name</div>
+												</td>
+												<td>
+													<div>
+														<input id="name" type="text" placeholder=" Name" ng-model="profile.professionalReferencesDetailsBeingEdited.name"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>contact number</div>
+												</td>
+												<td>
+													<div>
+														<input id="contactnumber" type="text" placeholder="contact number" ng-model="profile.professionalReferencesDetailsBeingEdited.contactnumber"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>currently working</div>
+												</td>
+												<td>
+													<div >
+														<input id="currentlyWorking" type="text" placeholder="currentlyWorking" ng-model="profile.professionalReferencesDetailsBeingEdited.currentlyWorking"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div> Job Title/Designation</div>
+												</td>
+												<td>
+													<div >
+														<input id="designation" type="text" placeholder="designation" ng-model="profile.professionalReferencesDetailsBeingEdited.designation"/>
+														</div>
+												</td>
+												
+												</tr>
+												<tr>  
+												<td>
+													<div>Alternate contact number</div>
+												</td>
+												<td>
+													<div>
+														<input id="alternateNumber" type="text" placeholder="alternate Number" ng-model="profile.professionalReferencesDetailsBeingEdited.alternateNumber"/>
+														</div>
+												</td>
+												
+												</tr>
+												
+
+												</tbody>
+												</table>
+											</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div style="text-align: center;" class="modal-footer">
+												<!-- <span ng-if="profile.certificationBeingEdited.name == ''">
+													<button type="button" class="btn btn-info" disabled>Save
+													</button>
+												</span> --> <span >
+													<button type="button" data-dismiss="modal"
+														class="btn btn-info" ng-click="savePersonalInfo('professionalReferencesInfo')">Save
+													</button>
+												</span>
+
+												<button type="button" data-dismiss="modal"
+													class="btn btn-info"
+													ng-show="profile.certificationBeingEdited.index != undefined"
+													ng-click="removeCertification(profile.certificationBeingEdited)">
+													Remove</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				
+
+				<!--Professional References end -->
+
+
+
+				<!--appropriately if you have any of your family members /relatives working at Mindtree: start -->
+<div style="padding-left: 0px; padding-right: 0px;"
+					class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div
+								style="margin-bottom: 0%; margin-top: 3%; padding-left: 0px;"
+								class="col-xs-8">
+								<div class="tp_mrgn_top_btm tp_font_h3">previous history at Mindtree</div>
+							</div>
+							 <div style="text-align: right; margin-top: 3%;" class="col-xs-4">
+								<br />
+								<a id="qual_add"
+									ng-click="addAndOpenEmptyModel('familyMembersAtMindtreeInfo')" style="cursor: pointer;"
+									data-toggle="modal" data-target="#familymamber_detail_modal"> <b
+									onclick="">+ Add previous family members Details</b></a>
+							</div> 
+						</div>
+					</div>
+					
+					 <div class="row">
+						<div class="col-md-12 zwayamPadremovedTmp">
+							<ul style="list-style-type: disc;">
+								 <li ng-repeat="familyMembers in profile.familyMembersAtMindtreeDetails" class="col-md-12  text-muted pencilOnHover divPencilHover ">
+									<span data-toggle="modal" data-target="#familymamber_detail_modal"
+									ng-click="updatePersonalInfo($index,'familyMembersAtMindtreeInfo')"
+									style="position: absolute; right: 0px; top: 0px; padding: 1%; z-index: 555;"
+									class="glyphicon glyphicon-pencil"></span> 
+									<br/>
+									<table>
+									<tr>
+    								<td>&nbsp;{{ familyMembers.relationship }}</td>
+    								<td>&nbsp;{{ familyMembers.fullName }}</td>
+    								<td>&nbsp;{{ familyMembers.MID }}</td>
+    								
+    								</tr>
+									</table>  
+								</li> 
+							</ul>
+						</div>
+					</div>
+		</div>
+
+
+
+				<div style="background: white;" class="row">
+					<div style="padding-right: 0px; padding-left: 0px;"
+						class="col-md-12">
+						<div id="familymamber_detail_modal" role="dialog" class="modal fade"
+							tabindex="-1">
+							<div class="modal-dialog" style="width: 60%">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div style="background-color: #eee;" class="modal-header">
+										<button type="button" data-dismiss="modal" class="close" ng-click="closeModel()">×</button>
+										<h4 class="modal-title font_muted" align="center">family members /relatives working at Mindtree</h4>
+									</div>
+									<div
+										style="background-color: #eee; overflow-y: auto; max-height: 450px;"
+										class="modal-body">
+
+											<div class="col-md-12">
+											<table id="classTable" class="table table-bordered">
+											 <thead >
+   												<tr>
+   												<td>
+													<div >Relationship</div>
+												</td>
+   												<td>
+													<div>Full Name</div>
+												</td>
+													<td>
+													<div>MID</div>
+												</td>
+        										</tr>
+												</thead>
+												<tbody>
+												<tr>  
+												
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="HigherClgName" type="text" placeholder="relationship with employee" ng-model="profile.familyMembersAtMindtreeDetailsBeingEdited.relationship"/>
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="SecHigherClgName" type="text" placeholder="full Name" ng-model="profile.familyMembersAtMindtreeDetailsBeingEdited.fullName"/>
+														</div>
+												</td>
+												<td>
+													<div class="form-group col-xs-4">
+														<input id="SecHigherClgName" type="text" placeholder="mid" ng-model="profile.familyMembersAtMindtreeDetailsBeingEdited.MID"/>
+														</div>
+												</td>
+												</tr>
+												
+
+												</tbody>
+												</table>
+
+											</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div style="text-align: center;" class="modal-footer">
+												<!-- <span ng-if="profile.certificationBeingEdited.name == ''">
+													<button type="button" class="btn btn-info" disabled>Save
+													</button>
+												</span> --> <span >
+													<button type="button" data-dismiss="modal"
+														class="btn btn-info" ng-click="savePersonalInfo('familyMembersAtMindtreeInfo')">Save
+													</button>
+												</span>
+
+												<button type="button" data-dismiss="modal"
+													class="btn btn-info"
+													ng-show="profile.certificationBeingEdited.index != undefined"
+													ng-click="removeCertification(profile.certificationBeingEdited)">
+													Remove</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				
+
+				<!--appropriately if you have any of your family members /relatives working at Mindtree: end -->
+
+			<!-- Work Permit Starts -->
+				<br><br><button class="btn btn-info" style="display: block;margin: 5px auto;" type="button" ng-if="profile.approvalButtonShow" ng-click="submitForApproval()">Submit For Approval</button>
+		</div>
+		</div>
+		</div>
+		</form>
+</div>
+</body>
+</html>
